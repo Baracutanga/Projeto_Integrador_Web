@@ -17,9 +17,18 @@
   img {
     margin-left: 20px;
     width: 8%;
+    opacity: .6;
   }
 }
 
 #containerOption:hover {
-  @include presets.hoverOption
+  @include presets.hoverOption;
+  
+  span {
+    font-weight: 400;
+  }
+
+  img {
+    opacity: 1;
+  }
 }

@@ -1,7 +1,10 @@
+@use "../../../scss/colors.scss";
+
 #containerHome {
     display: flex;
 
     main {
         width: 100%;
+        background-color: colors.$corFundo;
     }
 }

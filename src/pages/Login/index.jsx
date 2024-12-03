@@ -1,52 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./styles.scss";
 import { useNavigate } from "react-router-dom";
 
+const URL = "https://backendpi-iju6.onrender.com/";
+
 function Login() {
-  const [loginData, setloginData] = useState({
-    email: "",
-    senha: "",
-  });
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  function verifyLogin() {
-    if (loginData.email == "admin@gmail.com" && loginData.senha == "0000") {
-      navigate("../Coordenador/Inicio/");
-    } else if (
-      loginData.email == "profe@gmail.com" &&
-      loginData.senha == "0000"
-    ) {
-      navigate("../Professor/Inicio/");
-    } else {
-      alert("Senha ou email incorreto!");
-    }
-  }
+  const handleLogin = () => {
+    axios
+      .post(`${URL}api/login`, {
+        email: email,
+        senha: senha,
+      })
+      .then((response) => {
+        const token = response.data.token;
 
-  const userCoord = {
-    email: "admin@gmail.com",
-    senha: "0000",
-    role: "coordenador",
-  };
-  const userProfe = {
-    email: "profe@gmail.com",
-    senha: "0000",
-    role: "professor",
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setloginData({
-      ...loginData,
-      [name]: value,
-    });
+        if (token) {
+          localStorage.setItem("token", token);
+          navigate("../Coordenador/Inicio/");
+        } else {
+          alert("Senha ou email incorreto.");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
     <div id="container">
       <div id="containerLogin">
         <h1>Login</h1>
-        <select name="role" value="professor" onChange={handleChange}>
+        <select name="role" value="professor">
           <option value="" disabled>
             Usuário
           </option>
@@ -61,7 +51,7 @@ function Login() {
             name="email"
             id="usuarioLogin"
             placeholder="Login"
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <br />
@@ -71,11 +61,11 @@ function Login() {
             type="password"
             name="senha"
             id="userSenha"
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Senha"
           />
         </label>
-        <button onClick={verifyLogin}>Entrar</button>
+        <button onClick={handleLogin}>Entrar</button>
       </div>
     </div>
   );
