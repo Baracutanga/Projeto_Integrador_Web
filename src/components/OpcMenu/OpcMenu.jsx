@@ -7,7 +7,7 @@ const OpcMenu = ({ icon, name, iconName, navigate }) => {
 
   return (
     <div id='containerOption' onClick={() => navigation(navigate)}>
-        <img src={icon} alt={iconName} id='optionMenu' />
+        <img src={icon} alt={iconName} className='optionMenu' />
         <span>{name}</span>
     </div>
   )

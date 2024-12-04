@@ -1,0 +1,73 @@
+@use "../../scss/colors.scss";
+
+#containerTurmasLista {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    #headerTurmas {
+        width: 100%;
+        display: flex;
+        flex: 1;
+        padding: 15px;
+        background-color: #fff;
+        margin-top: 10px;
+        justify-content: start;
+        box-sizing: border-box;
+        border-radius: 5px;
+
+        span {
+            display: flex;
+            width: 43%;
+        }
+    }
+
+    #listaTurmas {
+        ul {
+            padding-left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            height: 320px;
+            
+            .turma {
+                position: relative;
+                width: 100%;
+                padding: 15px;
+                background-color: #fff;
+                list-style: none;
+                display: flex;
+                flex: 1;
+                margin: 1px 0px;
+                align-items: center;
+                box-shadow: 2px 2px 2px colors.$lightBlack;
+                box-sizing: border-box;
+                border-radius: 2px;
+
+                span {
+                    width: 44%;
+                }
+
+                button {
+                    background-color: #fff;
+                    padding: 5px;
+                    border-radius: 20px;
+                    border: 1px solid colors.$lightBlack;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 5px;
+                }
+
+                button:hover {
+                    background-color: colors.$corTema;
+                    transition: 120ms ease-in-out;
+                    color: #fff;
+                    // border: none;
+                    // box-sizing: border-box;
+                }
+            }
+        }
+    }
+}

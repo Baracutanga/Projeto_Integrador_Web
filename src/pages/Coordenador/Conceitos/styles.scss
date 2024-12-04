@@ -1,10 +1,17 @@
-@use '../../../scss/colors.scss';
+@use "../../../scss/colors.scss";
 
 #containerConceitos {
-    display: flex;
+  display: flex;
 
-    main {
-        width: 100%;
-        background-color: colors.$corFundo;
+  main {
+    width: 100%;
+    background-color: colors.$corFundo;
+
+    #containerConceitos {
+      width: 95%;
+      display: flex;
+      margin: 40px auto;
+      flex-direction: column;
     }
+  }
 }

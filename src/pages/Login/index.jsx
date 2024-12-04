@@ -3,7 +3,7 @@ import axios from "axios";
 import "./styles.scss";
 import { useNavigate } from "react-router-dom";
 
-const URL = "https://backendpi-iju6.onrender.com/";
+const URL = "https://backendpi-7ekz.onrender.com/";
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -61,7 +61,7 @@ function Login() {
             type="password"
             name="senha"
             id="userSenha"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setSenha(e.target.value)}
             placeholder="Senha"
           />
         </label>
