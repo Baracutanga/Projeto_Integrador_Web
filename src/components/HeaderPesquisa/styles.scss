@@ -15,25 +15,4 @@
   h1 {
     color: colors.$corTema;
   }
-
-  #searchContainer {
-    position: absolute;
-    border: 1px solid colors.$lightBlack;
-    display: flex;
-    width: 300px;
-    padding: 5px;
-    border-radius: 30px;
-    box-sizing: border-box;
-    right: 10px;
-
-    img {
-      width: 10%;
-    }
-
-    input {
-      border: none;
-      background-color: rgba($color: #000000, $alpha: 0);
-      outline: none;
-    }
-  }
 }
