@@ -20,7 +20,7 @@ const ComunicadosCoord = () => {
         <main>
             <Header ldir="Início" adir="Comunicados" />
             <div id='areaComunicados'>
-              <HeaderComunicados />
+              <HeaderComunicados name="Comunicados" />
               <div id='comunicadoList'>
                 <ul>{listItems}</ul>
               </div>

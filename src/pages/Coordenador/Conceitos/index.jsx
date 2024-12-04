@@ -5,6 +5,8 @@ import "./styles.scss"
 import HeaderPesquisa from '../../../components/HeaderPesquisa/HeaderPesquisa'
 import axios from 'axios'
 import ListaTurmas from '../../../components/ListaTurmas/ListaTurmas'
+import HeaderComunicados from '../../../components/HeaderComunicados/HeaderComunicados'
+import ListaConceitos from '../../../components/ListaConceitos/ListaConceitos'
 
 const ConceitosCoord = () => {
   const [turma, setTurma] = useState('')
@@ -53,9 +55,9 @@ const ConceitosCoord = () => {
           <main>
               <Header ldir="Início" adir="Conceitos" />
               <div id='containerConceitos'>
-                <HeaderPesquisa />
+                <HeaderComunicados name="Conceitos" />
                 <div>
-                  
+                  <ListaConceitos />
                 </div>
               </div>
           </main>

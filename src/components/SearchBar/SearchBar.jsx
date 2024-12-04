@@ -2,9 +2,9 @@ import React from "react";
 import PesquisaIcon from '../../img/icons/buttons.svg'
 import "./styles.scss";
 
-const SearchBar = () => {
+const SearchBar = ({ isRegister }) => {
   return (
-    <div id="searchContainer">
+    <div className={isRegister ? "left" : "right"} id="searchContainer">
       <img src={PesquisaIcon} alt="" />
       <input type="text" placeholder="Pesquisar" />
     </div>
