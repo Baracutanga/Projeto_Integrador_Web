@@ -1,34 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MenuCoord from "../../../components/MenuCoord/MenuCoord";
 import Header from "../../../components/Header/Header";
-import SubCabecalho from '../../../components/SubCabecalho/SubCabecalho'
-import Registro from '../../../components/Registro/Registro'
+import SubCabecalho from "../../../components/SubCabecalho/SubCabecalho";
+import Registro from "../../../components/Registro/Registro";
 import "./styles.scss";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
-
-const Turmas = [
-  { nome: "1º Ano - A", turno: "Manhã" },
-  { nome: "1º Ano - B", turno: "Tarde" },
-  { nome: "2º Ano - A", turno: "Manhã" },
-  { nome: "2º Ano - B", turno: "Tarde" },
-  { nome: "3º Ano - A", turno: "Manhã" },
-  { nome: "3º Ano - B", turno: "Tarde" },
-  { nome: "4º Ano - A", turno: "Noite" },
-  { nome: "4º Ano - B", turno: "Noite" },
-  { nome: "5º Ano - A", turno: "Manhã" },
-  { nome: "5º Ano - B", turno: "Tarde" }
-];
+import axios from "axios";
 
 const TurmasCoord = () => {
-  const [registrar, setRegistrar] = useState(false)
-  const forverdadeiro = true;
+  const [registrar, setRegistrar] = useState(false);
+  const [turmaData, setTurmaData] = useState([]);
+
+  useEffect(() => {
+    const URL = "https://backendpi-7ekz.onrender.com/api";
+    const token = localStorage.getItem("token");
+
+    axios
+      .get(`${URL}/turma/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const data = res.data;
+        setTurmaData(data);
+      })
+      .catch((err) => console.error(err));
+  });
 
   const openRegistrar = () => {
-    setRegistrar(true)
-  }
+    setRegistrar(true);
+  };
   const closeRegistrar = () => {
-    setRegistrar(false)
-  }
+    setRegistrar(false);
+  };
 
   return (
     <div id="containerTurmas">
@@ -41,10 +46,12 @@ const TurmasCoord = () => {
           </div>
 
           <SubCabecalho click={openRegistrar} />
-          {registrar ? <Registro nameRegistro="Turma" quant="2" click={closeRegistrar} /> : <></>}
-          {/* não resolvido a lista  */}
-          <div id="lista">
-          </div>
+          {registrar ? (
+            <Registro nameRegistro="Turma" quant="2" click={closeRegistrar} />
+          ) : (
+            <></>
+          )}
+          <ListaGlobal objeto={turmaData} />
         </div>
       </main>
     </div>

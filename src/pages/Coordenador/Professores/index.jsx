@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MenuCoord from "../../../components/MenuCoord/MenuCoord";
 import Header from "../../../components/Header/Header";
-import SubCabecalho from '../../../components/SubCabecalho/SubCabecalho'
-import Registro from '../../../components/Registro/Registro'
+import SubCabecalho from "../../../components/SubCabecalho/SubCabecalho";
+import Registro from "../../../components/Registro/Registro";
 import "./styles.scss";
 import axios from "axios";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
@@ -21,32 +21,33 @@ const Professores = [
 ];
 
 const ProfessoresCoord = () => {
-  const [registrar, setRegistrar] = useState(false)
-  const [profeData, setProfeData] = useState([])
+  const [registrar, setRegistrar] = useState(false);
+  const [profeData, setProfeData] = useState([]);
 
   useEffect(() => {
-    const URL = 'https://backendpi-7ekz.onrender.com/api'
-    const token = localStorage.getItem("token")
+    const URL = "https://backendpi-7ekz.onrender.com/api";
+    const token = localStorage.getItem("token");
 
-    axios.get(`${URL}/professor`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-    .then(res => {
-      const data = res.data
-      setProfeData(data);
-    })
-    .catch(err => console.error(err))
-  })
+    axios
+      .get(`${URL}/professor`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const data = res.data;
+        setProfeData(data);
+      })
+      .catch((err) => console.error(err));
+  });
 
   const openRegistrar = () => {
-    setRegistrar(true)
-  }
-  
+    setRegistrar(true);
+  };
+
   const closeRegistrar = () => {
-    setRegistrar(false)
-  }
+    setRegistrar(false);
+  };
 
   return (
     <div id="containerProfessores">
@@ -59,10 +60,16 @@ const ProfessoresCoord = () => {
           </div>
 
           <SubCabecalho click={openRegistrar} />
-          {registrar ? <Registro nameRegistro="Professor" quant="4" click={closeRegistrar} /> : <></>}
-          <div id="lista">
-            <ListaGlobal objeto={profeData} />
-          </div>
+          {registrar ? (
+            <Registro
+              nameRegistro="Professor"
+              quant="4"
+              click={closeRegistrar}
+            />
+          ) : (
+            <></>
+          )}
+          <ListaGlobal objeto={profeData} />
         </div>
       </main>
     </div>
