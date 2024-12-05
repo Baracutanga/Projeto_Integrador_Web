@@ -1,15 +1,13 @@
 import React from 'react'
-import PesquisaIcon from '../../img/icons/buttons.svg'
 import "./styles.scss"
+import SearchBar from '../SearchBar/SearchBar'
 
 const HeaderPesquisa = () => {
+  const seforfalso = false
   return (
     <div id='containerHeaderPesquisa'>
         <h1>Selecionar Turma</h1>
-        <div id='searchContainer'>
-            <img src={PesquisaIcon} alt="" />
-            <input type="text" placeholder='Pesquisar' />
-        </div>
+        <SearchBar isRegister={seforfalso}/>
     </div>
   )
 }

@@ -1,0 +1,51 @@
+@use '../../../scss/colors.scss';
+
+#containerConceitosProfe {
+    display: flex;
+
+    main {
+        width: 100%;
+        background-color: colors.$corFundo;
+
+        #containerListaConceitos {
+            width: 95%;
+            height: 320px;
+            box-shadow: 0px 4px 4px colors.$lightBlack;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 5px;
+
+            h1 {
+                background-color: #fff;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                text-align: start;
+                padding-left: 20px;
+                color: colors.$corTema;
+                box-shadow: 0px 4px 4px colors.$lightBlack;
+                border-radius: 5px;
+            }
+
+            #headerListagem {
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                
+                span {
+                    flex-direction: row;
+                    display: flex;
+                    width: 130px;
+                    box-sizing: border-box;
+                    margin-left: 60px;
+                }
+
+                #nomeAluno {
+                    margin-right: 20px;
+                    margin-left: 0px;
+                }
+            }
+          }
+    }
+}

@@ -1,0 +1,12 @@
+@use "../../scss/colors.scss";
+
+#containerMenu {
+    height: 100vh;
+    width: 280px;
+    background-color: colors.$corTema;
+}
+
+hr {
+    width: 90%;
+    opacity: .4;
+}

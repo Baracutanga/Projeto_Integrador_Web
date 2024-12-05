@@ -17,20 +17,23 @@ const ConceitosCoord = () => {
   const URL = 'https://backendpi-7ekz.onrender.com/';
 
   useEffect(() => {
-    // const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");  
 
-    // axios.get(`${URL}api/coordenador/turmas`, {
-    //   headers: {
-    //     Authorization: `Bearer: ${token}`,
-    //   }
-    // })
-    // .then(response => {
-    //   const data = response.data;
+    axios.get(`${URL}api/aviso/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
+    .then(response => {
+      const data = response.data;
+      // setTurmaNomeData(data.turma.nome);
+      // setTurmaTurnoData(data.turma.turno);
 
-    //   console.log(data);
-    // })
+      console.log(data);
+    })
+    .catch(err => console.error(err)); 
   })
-  
+
   if (!selected) {
     return (
       <div id='containerConceitos'>

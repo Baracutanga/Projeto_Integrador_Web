@@ -1,0 +1,13 @@
+#listagemContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    li {
+        list-style: none;
+        
+        span {
+            width: 50%;
+        }
+    }
+}

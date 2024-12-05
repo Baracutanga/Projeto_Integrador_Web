@@ -1,0 +1,51 @@
+@use '../../scss/colors.scss';
+
+#containerRegister {
+    width: 26%;
+    padding: 15px;
+    left: 42%;
+    top: 100px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #D1D1D1;
+    border-radius: 10px;
+
+    label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        input {
+            padding: 5px;
+            outline: none;
+        }
+    }
+
+    select {
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid colors.$lightBlack;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+    button {
+        padding: 10px;
+        width: 95%;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid colors.$lightBlack;
+        cursor: pointer;
+        margin-bottom: 5px;
+        background-color: rgba($color: #000000, $alpha: 0);
+    }
+
+    button:hover {
+        background-color: colors.$corTema;
+        transition: 120ms ease-in-out;
+        color: #fff;
+    }
+}
