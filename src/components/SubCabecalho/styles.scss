@@ -1,7 +1,7 @@
 @use "../../scss/colors.scss";
+
 #SubCabecalho {
   position: relative;
-  box-sizing: border-box;
   background-color: colors.$cinzaHeader;
   width: 95%;
   margin: 0 auto;
@@ -10,39 +10,29 @@
   padding: 10px;
   border-radius: 10px;
 
-  label {
-    box-sizing: border-box;
-    display: flex;
-    width: 20%;
-
-    select {
-      outline: none;
-      border: 1px solid colors.$lightBlack;
-      border-radius: 5px;
-      padding: 5px 10px;
-      width: 45%;
-      text-align: left;
-      color: colors.$lightBlack;
-      margin: 0px 5px;
-    }
-  }
-  button {
-    position: absolute;
-    width: 20%;
-    height: auto;
-    right: 70px;
-    text-align: start;
-    padding: 0px 10px;
-    border-radius: 5px;
+  select {
+    width: 130px;
     outline: none;
     border: 1px solid colors.$lightBlack;
-    background-color: #fff;
     color: colors.$lightBlack;
+    border-radius: 5px;
+    margin: 0px 10px;
+    margin-right: 38%;
+  }
+  button {
+    width: 200px;
+    background-color: rgba($color: #000000, $alpha: 0);
+    color: #000;
+    border: 1px solid colors.$lightBlack;
+    text-align: start;
+    border-radius: 5px;
+    padding-left: 15px;
     cursor: pointer;
   }
+
   button:hover {
     background-color: colors.$corTema;
     color: #fff;
-    transition: 150ms ease-in-out;
+    transition: 120ms ease-in-out;
   }
 }

@@ -6,7 +6,7 @@
   display: flex;
   width: 300px;
   padding: 5px;
-  border-radius: 30px;
+  border-radius: 5px;
   box-sizing: border-box;
   right: 10px;
 
@@ -18,6 +18,7 @@
     border: none;
     background-color: rgba($color: #000000, $alpha: 0);
     outline: none;
+    width: 100%;
   }
 }
 
