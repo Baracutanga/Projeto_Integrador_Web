@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import MenuCoord from "../../../components/MenuCoord/MenuCoord";
 import Header from "../../../components/Header/Header";
-import SubCabecalho from "../../../components/SubCabecalho/SubCabecalho";
+import SubCabecalho from '../../../components/SubCabecalho/SubCabecalho'
+import Registro from '../../../components/Registro/Registro'
 import "./styles.scss";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
 
@@ -19,7 +20,16 @@ const Turmas = [
 ];
 
 const TurmasCoord = () => {
-  const Severdds = true 
+  const [registrar, setRegistrar] = useState(false)
+  const forverdadeiro = true;
+
+  const openRegistrar = () => {
+    setRegistrar(true)
+  }
+  const closeRegistrar = () => {
+    setRegistrar(false)
+  }
+
   return (
     <div id="containerTurmas">
       <MenuCoord />
@@ -30,7 +40,8 @@ const TurmasCoord = () => {
             <h1 id="textocab">Turmas</h1>
           </div>
 
-          <SubCabecalho />
+          <SubCabecalho click={openRegistrar} />
+          {registrar ? <Registro nameRegistro="Turma" quant="2" click={closeRegistrar} /> : <></>}
           {/* não resolvido a lista  */}
           <div id="lista">
           </div>

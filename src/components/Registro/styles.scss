@@ -48,4 +48,23 @@
         transition: 120ms ease-in-out;
         color: #fff;
     }
+
+    #closeBtn {
+        border: none;
+        padding: none;
+        margin: none;
+        width: 10%;
+        position: absolute;
+        right: 20px;
+        opacity: .5;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    #closeBtn:hover {
+        background-color: rgba($color: #000000, $alpha: 0);
+        opacity: 1;
+    }
 }

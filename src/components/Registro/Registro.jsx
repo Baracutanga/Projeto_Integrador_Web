@@ -1,10 +1,14 @@
 import React from "react";
 import "./styles.scss";
+import CloseIcon from "../../img/icons/cross.svg";
 
-const Registro = ({ nameRegistro, quant }) => {
+const Registro = ({ nameRegistro, quant, click }) => {
   if (quant == 1) {
     return (
-      <div id="containerRegister" className={isPressioned}>
+      <div id="containerRegister">
+        <button id="closeBtn" onClick={click}>
+          <img src={CloseIcon} alt="" />
+        </button>
         <h1>{nameRegistro}</h1>
         <label>
           <span>Nome</span>
@@ -16,6 +20,9 @@ const Registro = ({ nameRegistro, quant }) => {
   } else if (quant == 2) {
     return (
       <div id="containerRegister">
+        <button id="closeBtn" onClick={click}>
+          <img src={CloseIcon} alt="" />
+        </button>
         <h1>{nameRegistro}</h1>
         <label>
           <span>Nome</span>
@@ -31,6 +38,9 @@ const Registro = ({ nameRegistro, quant }) => {
   } else if (quant == 3) {
     return (
       <div id="containerRegister">
+        <button id="closeBtn" onClick={click}>
+          <img src={CloseIcon} alt="" />
+        </button>
         <h1>{nameRegistro}</h1>
         <label>
           <span>Nome</span>
@@ -50,6 +60,9 @@ const Registro = ({ nameRegistro, quant }) => {
   } else if (quant == 4) {
     return (
       <div id="containerRegister">
+        <button id="closeBtn" onClick={click}>
+          <img src={CloseIcon} alt="" />
+        </button>
         <h1>{nameRegistro}</h1>
         <label>
           <span>Nome</span>

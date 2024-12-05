@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState }  from "react";
 import MenuCoord from "../../../components/MenuCoord/MenuCoord";
 import Header from "../../../components/Header/Header";
-import SubCabecalho from "../../../components/SubCabecalho/SubCabecalho";
+import SubCabecalho from '../../../components/SubCabecalho/SubCabecalho'
+import Registro from '../../../components/Registro/Registro'
 import "./styles.scss";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
 
@@ -19,6 +20,16 @@ const Alunos = [
 ];
 
 const AlunosCoord = () => {
+  const [registrar, setRegistrar] = useState(false)
+  const forverdadeiro = true;
+
+  const openRegistrar = () => {
+    setRegistrar(true)
+  }
+  const closeRegistrar = () => {
+    setRegistrar(false)
+  }
+
   const seforverdd = true
   return (
     <div id="containerAlunos">
@@ -32,7 +43,8 @@ const AlunosCoord = () => {
             <h1 id="textocab">Aluno</h1>
           </div>
          
-          <SubCabecalho />
+          <SubCabecalho click={openRegistrar} />
+          {registrar ? <Registro nameRegistro="Aluno" quant="4" click={closeRegistrar} /> : <></>}
         {/* não resolvido a lista  */}
           <div id="lista">
             <ListaGlobal objeto={Alunos}/>

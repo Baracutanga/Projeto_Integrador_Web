@@ -2,7 +2,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import React from "react";
 import "./styles.scss";
 
-const SubCabecalho = () => {
+const SubCabecalho = ({ click }) => {
   const seforverdd = true;
   return (
     <div id="SubCabecalho">
@@ -13,7 +13,11 @@ const SubCabecalho = () => {
         <option value="2-A">2-A</option>
         <option value="1-B">1-B</option>
       </select>
-      <button>Registrar</button>
+      <button
+        onClick={click}
+      >
+        Registrar
+      </button>
     </div>
   );
 };

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import MenuCoord from "../../../components/MenuCoord/MenuCoord";
 import Header from "../../../components/Header/Header";
-import SubCabecalho from "../../../components/SubCabecalho/SubCabecalho";
+import SubCabecalho from '../../../components/SubCabecalho/SubCabecalho'
+import Registro from '../../../components/Registro/Registro'
 import "./styles.scss";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
-import Registro from "../../../components/Registro/Registro";
 
 const Professores = [
   { nome: "Marcos Silva", email: "marcos.silva@example.com" },
@@ -20,7 +20,16 @@ const Professores = [
 ];
 
 const ProfessoresCoord = () => {
+  const [registrar, setRegistrar] = useState(false)
   const forverdadeiro = true;
+
+  const openRegistrar = () => {
+    setRegistrar(true)
+  }
+  const closeRegistrar = () => {
+    setRegistrar(false)
+  }
+
   return (
     <div id="containerProfessores">
       <MenuCoord />
@@ -31,8 +40,8 @@ const ProfessoresCoord = () => {
             <h1 id="textocab">Professores</h1>
           </div>
 
-          <SubCabecalho />
-          <Registro nameRegistro="Professor" quant="4" />
+          <SubCabecalho click={openRegistrar} />
+          {registrar ? <Registro nameRegistro="Professor" quant="4" click={closeRegistrar} /> : <></>}
           {/* não resolvido a lista  */}
           <div id="lista"></div>
         </div>
