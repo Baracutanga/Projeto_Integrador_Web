@@ -3,7 +3,7 @@ import "./styles.scss";
 
 const isConceitos = true;
 
-const HeaderComunicados = () => {
+const HeaderComunicados = ({ click }) => {
   return (
     <div id="headerRegistros">
       <h1>Comunicados</h1>
@@ -25,7 +25,7 @@ const HeaderComunicados = () => {
             <option value="2-A">2-A</option>
             <option value="1-B">1-B</option>
           </select>
-          <button>Registrar</button>
+          <button onClick={click}>Registrar</button>
         </label>
       ) : (
         <label>

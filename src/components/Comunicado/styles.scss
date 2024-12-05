@@ -15,6 +15,9 @@
     margin: 0;
     font-size: 25px;
     text-align: start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   p {
