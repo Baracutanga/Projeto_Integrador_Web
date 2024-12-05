@@ -4,6 +4,7 @@ import Header from "../../../components/Header/Header";
 import SubCabecalho from "../../../components/SubCabecalho/SubCabecalho";
 import "./styles.scss";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
+import Registro from "../../../components/Registro/Registro";
 
 const Professores = [
   { nome: "Marcos Silva", email: "marcos.silva@example.com" },
@@ -31,6 +32,7 @@ const ProfessoresCoord = () => {
           </div>
 
           <SubCabecalho />
+          <Registro nameRegistro="Professor" quant="4" />
           {/* não resolvido a lista  */}
           <div id="lista"></div>
         </div>

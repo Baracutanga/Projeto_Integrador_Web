@@ -1,9 +1,10 @@
 import trespontos from "../../img/icons/dots.svg";
 import { useState, useEffect } from "react";
+import "./styles.scss";
 import React from "react";
 
 const ListaGlobal = ({ objeto }) => {
-  const [alunoData, setAlunoData] = useState([]); // Inicialize como array vazio
+  const [alunoData, setAlunoData] = useState([]);
 
   // Use useEffect para atualizar o estado apenas uma vez
   useEffect(() => {
@@ -24,7 +25,7 @@ const ListaGlobal = ({ objeto }) => {
 
   return (
     <div>
-      <ul>{lista}</ul>
+      <ul id="listagemContainer">{lista}</ul>
     </div>
   );
 };

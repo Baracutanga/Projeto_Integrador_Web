@@ -9,6 +9,9 @@ import TurmasCoord from "./pages/Coordenador/Turmas";
 import ConceitosCoord from "./pages/Coordenador/Conceitos";
 import CoordenadoresCoord from "./pages/Coordenador/Coordenadores";
 import DisciplinasCoord from "./pages/Coordenador/Disciplinas";
+import HomeProfe from "./pages/Professor/Inicio";
+import ComunicadosProfe from "./pages/Professor/Comunicados";
+import ConceitosProfe from "./pages/Professor/Conceitos";
 
 function App() {
 
@@ -23,6 +26,9 @@ function App() {
       <Route path="/Coordenador/Conceitos/" element={<ConceitosCoord />} />
       <Route path="/Coordenador/Coordenadores/" element={<CoordenadoresCoord />} />
       <Route path="/Coordenador/Disciplinas/" element={<DisciplinasCoord />} />
+      <Route path="/Professor/Inicio/" element={<HomeProfe />} />
+      <Route path="/Professor/Comunicados/" element={<ComunicadosProfe />} />
+      <Route path="/Professor/Conceitos/" element={<ConceitosProfe />} />
     </Routes>
   );
 }

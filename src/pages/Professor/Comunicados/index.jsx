@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import MenuCoord from '../../../components/MenuCoord/MenuCoord';
-import Header from '../../../components/Header/Header';
 import './styles.scss';
-import HeaderComunicados from '../../../components/HeaderComunicados/HeaderComunicados';
-import Comunicado from '../../../components/Comunicado/Comunicado';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import MenuProfe from '../../../components/MenuProfe/MenuProfe'
+import Header from '../../../components/Header/Header'
+import HeaderComunicados from '../../../components/HeaderComunicados/HeaderComunicados'
+import Comunicado from '../../../components/Comunicado/Comunicado'
 
-const ComunicadosCoord = () => {
+const ComunicadosProfe = () => {
   const [avisos, setAvisos] = useState([]); // Armazena os dados recebidos
   const URL = 'https://backendpi-7ekz.onrender.com/';
 
@@ -33,9 +33,9 @@ const ComunicadosCoord = () => {
   ));
 
   return (
-    <div id="containerComunicados">
-      <MenuCoord />
-      <main>
+    <div id='containerComunicadosProfe'>
+        <MenuProfe />
+        <main>
         <Header ldir="Início" adir="Comunicados" />
         <div id="areaComunicados">
           <HeaderComunicados />
@@ -45,7 +45,7 @@ const ComunicadosCoord = () => {
         </div>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default ComunicadosCoord;
+export default ComunicadosProfe

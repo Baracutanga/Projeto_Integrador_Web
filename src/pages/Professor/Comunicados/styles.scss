@@ -1,0 +1,33 @@
+#containerComunicadosProfe {
+    display: flex;
+    background-color: #F7FAFC;
+
+    main {
+        width: 100%;
+
+        #areaComunicados {
+            width: 95%;
+            background-color: #E8E8E8;
+            margin: 40px auto;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        #comunicadoList {
+            padding: 20px;
+            height: 379px;
+            overflow-y: auto;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+
+                li {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
