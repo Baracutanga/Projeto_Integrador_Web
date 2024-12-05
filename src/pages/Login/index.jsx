@@ -3,6 +3,7 @@ import axios from "axios";
 import "./styles.scss";
 import { useNavigate } from "react-router-dom";
 import HomeCoord from "../Coordenador/Inicio";
+import HomeProfe from "../Professor/Inicio";
 
 const URL = "https://backendpi-7ekz.onrender.com/";
 
@@ -29,12 +30,12 @@ function Login() {
         const token = response.data.token;
 
         if (response.status === 200) {
-          if (response.data.role == "Coordenador") {
+          if (response.data.user.role === "Coordenador") {
             localStorage.setItem("token", token);
-            navigate("../Coordenador/Inicio/");
+            navigate("../Coordenador/Inicio");
           } else {
             localStorage.setItem("token", token);
-            navigate("../Professor/Inicio/");
+            navigate("../Professor/Inicio");
           }
         } else {
           alert("Senha ou email incorreto.");
