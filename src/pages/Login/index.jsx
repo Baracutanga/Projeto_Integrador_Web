@@ -16,7 +16,7 @@ function Login() {
 
   const handleLogin = () => {
     if (!email || !senha || !role) {
-      alert('Por favor, preencha todos os campos!');
+      alert("Por favor, preencha todos os campos!");
       return;
     }
 
@@ -35,10 +35,12 @@ function Login() {
             navigate("../Coordenador/Inicio");
           } else {
             localStorage.setItem("token", token);
-            navigate("../Professor/Inicio");
+          navigate("../Professor/Inicio");
           }
+        } else if (response.status === 401) {
+          alert("Senha ou email incorreto.");     
         } else {
-          alert("Senha ou email incorreto.");
+          alert('Nada aconteceu')
         }
       })
       .catch((err) => {

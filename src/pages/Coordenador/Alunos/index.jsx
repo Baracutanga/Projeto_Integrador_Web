@@ -1,10 +1,11 @@
-import React, { useState }  from "react";
+import React, { useEffect, useState }  from "react";
 import MenuCoord from "../../../components/MenuCoord/MenuCoord";
 import Header from "../../../components/Header/Header";
 import SubCabecalho from '../../../components/SubCabecalho/SubCabecalho'
 import Registro from '../../../components/Registro/Registro'
 import "./styles.scss";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
+import axios from "axios";
 
 const Alunos = [
   { nome: "Ana Silva", email: "ana.silva@example.com" },
@@ -21,16 +22,32 @@ const Alunos = [
 
 const AlunosCoord = () => {
   const [registrar, setRegistrar] = useState(false)
-  const forverdadeiro = true;
+  const [alunoData, setAlunoData] = useState([]);
+
+  useEffect(() => {
+    const URL = 'https://backendpi-7ekz.onrender.com/api'
+    const token = localStorage.getItem("token")
+
+    axios.get(`${URL}/aluno/alunos`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => {
+      const data = res.data
+      setAlunoData(data);
+    })
+    .catch(err => console.error(err))
+  })
 
   const openRegistrar = () => {
     setRegistrar(true)
   }
+
   const closeRegistrar = () => {
     setRegistrar(false)
   }
 
-  const seforverdd = true
   return (
     <div id="containerAlunos">
       <MenuCoord />
@@ -45,9 +62,8 @@ const AlunosCoord = () => {
          
           <SubCabecalho click={openRegistrar} />
           {registrar ? <Registro nameRegistro="Aluno" quant="4" click={closeRegistrar} /> : <></>}
-        {/* não resolvido a lista  */}
           <div id="lista">
-            <ListaGlobal objeto={Alunos}/>
+            <ListaGlobal objeto={alunoData}/>
           </div>
         </div>
       </main>

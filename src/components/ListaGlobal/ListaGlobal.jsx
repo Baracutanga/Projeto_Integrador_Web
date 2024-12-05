@@ -4,16 +4,16 @@ import "./styles.scss";
 import React from "react";
 
 const ListaGlobal = ({ objeto }) => {
-  const [alunoData, setAlunoData] = useState([]);
+  const [data, setData] = useState([]);
 
   // Use useEffect para atualizar o estado apenas uma vez
   useEffect(() => {
     if (Array.isArray(objeto)) {
-      setAlunoData(objeto);
+      setData(objeto);
     }
   }, [objeto]);
 
-  const lista = alunoData.map((obj, index) => (
+  const lista = data.map((obj, index) => (
     <li key={index}>
       <span>{obj.nome}</span>
       <span>{obj.email}</span>

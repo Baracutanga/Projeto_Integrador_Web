@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuCoord from "../../../components/MenuCoord/MenuCoord";
 import Header from "../../../components/Header/Header";
 import SubCabecalho from '../../../components/SubCabecalho/SubCabecalho'
 import Registro from '../../../components/Registro/Registro'
 import "./styles.scss";
+import axios from "axios";
 import ListaGlobal from "../../../components/ListaGlobal/ListaGlobal";
 
 const Professores = [
@@ -21,11 +22,28 @@ const Professores = [
 
 const ProfessoresCoord = () => {
   const [registrar, setRegistrar] = useState(false)
-  const forverdadeiro = true;
+  const [profeData, setProfeData] = useState([])
+
+  useEffect(() => {
+    const URL = 'https://backendpi-7ekz.onrender.com/api'
+    const token = localStorage.getItem("token")
+
+    axios.get(`${URL}/professor`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => {
+      const data = res.data
+      setProfeData(data);
+    })
+    .catch(err => console.error(err))
+  })
 
   const openRegistrar = () => {
     setRegistrar(true)
   }
+  
   const closeRegistrar = () => {
     setRegistrar(false)
   }
@@ -42,8 +60,9 @@ const ProfessoresCoord = () => {
 
           <SubCabecalho click={openRegistrar} />
           {registrar ? <Registro nameRegistro="Professor" quant="4" click={closeRegistrar} /> : <></>}
-          {/* não resolvido a lista  */}
-          <div id="lista"></div>
+          <div id="lista">
+            <ListaGlobal objeto={profeData} />
+          </div>
         </div>
       </main>
     </div>
